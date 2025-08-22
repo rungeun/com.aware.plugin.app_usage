@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.aware.plugin.app_usage">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application>
+        <service
+            android:name="com.aware.plugin.app_usage.Plugin"
+            android:exported="true"
+            android:label="AWARE: App Usage" />
+
+        <provider
+            android:name="com.aware.plugin.app_usage.Provider"
+            android:authorities="${applicationId}.provider.app_usage"
+            android:exported="true"
+            android:label="@string/plugin_app_usage"
+            android:readPermission="com.aware.READ_CONTEXT_DATA"
+            android:syncable="true"
+            android:writePermission="com.aware.WRITE_CONTEXT_DATA" />
+
+        <activity
+            android:name="com.aware.plugin.app_usage.Settings"
+            android:label="AWARE: App Usage"
+            android:exported="true" />
+
+        <activity
+            android:name="com.aware.plugin.app_usage.AppBlacklistActivity"
+            android:label="Manage Ignored Apps"
+            android:exported="false" />
+
+        <service
+            android:name="com.aware.plugin.app_usage.syncadapters.App_Usage_Sync"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_app_usage" />
+        </service>
+
+        <!-- Alarm Receiver -->
+        <receiver
+            android:name="com.aware.plugin.app_usage.Plugin$AlarmReceiver"
+            android:exported="false" />
+
+    </application>
+</manifest>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="plugin_app_usage"
+    android:title="App Usage Plugin">
+
+    <CheckBoxPreference
+        android:key="status_plugin_app_usage"
+        android:title="Enable App Usage"
+        android:summary="Activate/deactivate plugin"
+        android:defaultValue="false"
+        android:persistent="true" />
+
+    <Preference
+        android:dependency="status_plugin_app_usage"
+        android:key="app_usage_sync"
+        android:summary="Tap to sync data now."
+        android:title="Sync App Usage data" />
+
+    <Preference
+        android:dependency="status_plugin_app_usage"
+        android:key="app_usage_permission"
+        android:summary="Tap to grant usage access permission"
+        android:title="Usage Access Permission" />
+
+    <EditTextPreference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="1"
+        android:inputType="numberDecimal"
+        android:dependency="status_plugin_app_usage"
+        android:key="plugin_app_usage_frequency"
+        android:persistent="true"
+        android:summary="Every 1 minute(s)"
+        android:title="Update frequency (minutes)" />
+
+    <PreferenceCategory
+        android:title="Advanced Settings"
+        android:dependency="status_plugin_app_usage">
+
+        <ListPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="blacklist"
+            android:dependency="status_plugin_app_usage"
+            android:entries="@array/app_filter_mode_labels"
+            android:entryValues="@array/app_filter_mode_values"
+            android:key="app_filter_mode"
+            android:persistent="true"
+            android:summary="Blacklist mode"
+            android:title="App filtering mode" />
+
+        <Preference
+            android:dependency="status_plugin_app_usage"
+            android:key="manage_app_list"
+            android:title="Manage app list"
+            android:summary="Select apps for filtering" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
