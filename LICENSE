@@ -199,3 +199,19 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+================================================================================
+
+Copyright (c) 2011 AWARE Mobile Context Instrumentation Middleware/Framework
+Copyright (c) 2025 RunGeun
+
+This project is a modified version of the AWARE device_usage plugin,
+which is part of the AWARE Framework.
+
+Original work: 
+- AWARE Framework: https://github.com/awareframework/aware-client
+- device_usage plugin: https://github.com/denzilferreira/com.aware.plugin.device_usage
+
+Modified work: https://github.com/rungeun/com.aware.plugin.app_usage
+
+Licensed under the Apache License, Version 2.0
