@@ -39,3 +39,13 @@ filter_mode | TEXT | Filter mode for app tracking
 app_list | TEXT | List of apps to include/exclude
 app_count | INTEGER | Number of apps in filter list
 last_modified | REAL | Last modification timestamp
+
+## License
+
+This project is a modified version of the [AWARE device usage plugin](https://github.com/denzilferreira/com.aware.plugin.device_usage), 
+which is part of the [AWARE Framework](https://github.com/awareframework/aware-client).
+
+- Original work: Copyright (c) 2011 AWARE Mobile Context Instrumentation Middleware/Framework  
+- Modifications: Copyright (c) 2025 RunGeun
+
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) file for details.
